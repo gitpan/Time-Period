@@ -3,6 +3,7 @@ abstract: 'A Perl module to deal with time periods.'
 author:
   - 'Patrick Ryan, Paul Boyd <pboyd@dev3l.net>'
 build_requires:
+  POSIX: 0
   Test::More: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.31
@@ -16,4 +17,4 @@ name: Time-Period
 requires:
   Exporter: 0
   perl: 5.001
-version: 1.21
+version: 1.22

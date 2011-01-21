@@ -1,10 +1,11 @@
 use strict;
 use warnings;
 
-use Test::More tests => 18;
+use Test::More tests => 19;
 use Time::Period;
 
-my $base_date = 1293858000; # 01/01/2011 00:00:00 (Saturday)
+use POSIX;
+my $base_date = POSIX::mktime(0, 0, 0, 1, 0, 111); # 01/01/2011 00:00:00 (Saturday)
 my $day = 24 * 60 * 60;
 
 is(inPeriod($base_date, 'yd {1}'), 1, 'should match a single day');
@@ -28,6 +29,10 @@ is(inPeriod(0, 'yd {0}'), -1, 'should return -1 for day numbers less than 1 (sin
 is(inPeriod(0, 'yd {0-3}'), -1, 'should return -1 for day numbers less than 1 (left)');
 is(inPeriod(0, 'yd {3-0}'), -1, 'should return -1 for day numbers less than 1 (right)');
 
-is(inPeriod(0, 'yd {366}'), -1, 'should return -1 for day numbers greater than 365 (single)');
-is(inPeriod(0, 'yd {366-1}'), -1, 'should return -1 for day numbers greater than 365 (left)');
-is(inPeriod(0, 'yd {1-366}'), -1, 'should return -1 for day numbers greater than 365 (right)');
+is(inPeriod(0, 'yd {367}'), -1, 'should return -1 for day numbers greater than 366 (single)');
+is(inPeriod(0, 'yd {367-1}'), -1, 'should return -1 for day numbers greater than 366 (left)');
+is(inPeriod(0, 'yd {1-367}'), -1, 'should return -1 for day numbers greater than 366 (right)');
+
+# Dec 31 00:00:00 2012
+my $last_day = POSIX::mktime(0, 0, 0, 31, 11, 112);
+is(inPeriod($last_day, 'yd {366}'), 1, 'should be able to match the last day of the year on leap year');

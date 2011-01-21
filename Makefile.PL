@@ -12,6 +12,7 @@ my %WriteMakefileArgs = (
   'ABSTRACT' => 'A Perl module to deal with time periods.',
   'AUTHOR' => 'Patrick Ryan, Paul Boyd <pboyd@dev3l.net>',
   'BUILD_REQUIRES' => {
+    'POSIX' => '0',
     'Test::More' => '0'
   },
   'CONFIGURE_REQUIRES' => {
@@ -24,7 +25,7 @@ my %WriteMakefileArgs = (
   'PREREQ_PM' => {
     'Exporter' => '0'
   },
-  'VERSION' => '1.21',
+  'VERSION' => '1.22',
   'test' => {
     'TESTS' => 't/*.t'
   }
