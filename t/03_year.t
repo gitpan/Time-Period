@@ -29,14 +29,9 @@ is(inPeriod(0, 'yr {_}'), -1, 'should return -1 for non-alphnumeric years (singl
 is(inPeriod(0, 'yr {_ - 2000}'), -1, 'should return -1 for non-alphnumeric years (left)');
 is(inPeriod(0, 'yr {2000 - _}'), -1, 'should return -1 for non-alphnumeric years (right)');
 
-TODO: {
-    local $TODO='years should have 366 days in leap year, but they don\'t';
-
-    # This is an old bug, the 4-digit year calculation used to assume 365 days
-    # were in a year, consequently the last day of the a leap year appeared to
-    # be in the following year. See
-    # https://rt.cpan.org/Public/Bug/Display.html?id=6353
-    #
-    # (1356930000 = Mon Dec 31 00:00:00 EST 2012)
-    is(inPeriod(1356930000, 'yr {2012}'), 1, 'should be able to match the last day of the year on leap year');
-}
+# This is an old bug, the 4-digit year calculation used to assume 365 days were
+# in a year, consequently the last day of the a leap year appeared to be in
+# the following year. See https://rt.cpan.org/Public/Bug/Display.html?id=6353
+#
+# (1356930000 = Mon Dec 31 00:00:00 EST 2012)
+is(inPeriod(1356930000, 'yr {2012}'), 1, 'should be able to match the last day of the year on leap year');

@@ -17,4 +17,4 @@ name: Time-Period
 requires:
   Exporter: 0
   perl: 5.001
-version: 1.22
+version: 1.23
