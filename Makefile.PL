@@ -2,32 +2,34 @@
 use strict;
 use warnings;
 
-BEGIN { require 5.001; }
+use 5.001;
 
-use ExtUtils::MakeMaker 6.31;
+use ExtUtils::MakeMaker 6.30;
 
 
 
 my %WriteMakefileArgs = (
-  'ABSTRACT' => 'A Perl module to deal with time periods.',
-  'AUTHOR' => 'Patrick Ryan, Paul Boyd <pboyd@dev3l.net>',
-  'BUILD_REQUIRES' => {
-    'POSIX' => '0',
-    'Test::More' => '0'
+  "ABSTRACT" => "A Perl module to deal with time periods.",
+  "AUTHOR" => "Patrick Ryan, Paul Boyd <pboyd\@dev3l.net>",
+  "BUILD_REQUIRES" => {
+    "POSIX" => 0,
+    "Test::More" => 0,
+    "strict" => 0,
+    "warnings" => 0
   },
-  'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.31'
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30"
   },
-  'DISTNAME' => 'Time-Period',
-  'EXE_FILES' => [],
-  'LICENSE' => 'perl',
-  'NAME' => 'Time::Period',
-  'PREREQ_PM' => {
-    'Exporter' => '0'
+  "DISTNAME" => "Time-Period",
+  "EXE_FILES" => [],
+  "LICENSE" => "perl",
+  "NAME" => "Time::Period",
+  "PREREQ_PM" => {
+    "Exporter" => 0
   },
-  'VERSION' => '1.23',
-  'test' => {
-    'TESTS' => 't/*.t'
+  "VERSION" => "1.24",
+  "test" => {
+    "TESTS" => "t/*.t"
   }
 );
 
